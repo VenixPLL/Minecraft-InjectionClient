@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="InjectionClientTest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/InjectionClientTest_jar</output-path>
+    <root id="archive" name="InjectClient.jar">
+      <element id="module-output" name="InjectionClientTest" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.12.11/byte-buddy-1.12.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

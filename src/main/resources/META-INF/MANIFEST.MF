@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: me.dickmeister.injector.ClientInjector
+Agent-Class: me.dickmeister.agent.ClientAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Can-Set-Native-Method-Prefix: true
+Permissions: all-permissions
+
