@@ -2,6 +2,7 @@
 
 This project was used to learn injecting a "working" hacked client into minecraft
 
+### Requires to run client from the JDK, set your jdk 17 as runtime for minecraft client, idk if it requires it or not just use it to be safe.
 ### Only supports 1.18 vanilla version of the game, but feel free to push your changes regarding compatibility
 
 # Working modules
