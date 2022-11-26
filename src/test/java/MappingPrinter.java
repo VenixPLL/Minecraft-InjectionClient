@@ -15,8 +15,11 @@ public class MappingPrinter {
 
         var mappings = mappingManager.getMappedClasses();
         mappings.forEach((key,clazz) -> {
-            if(!key.equals("net.minecraft.network.chat.Component")) return;
+            if(!key.startsWith("net.minecraft.world.entity.player.Player")) return;
             System.out.println(key + " " + clazz.getNewClassName());
+            clazz.getMappedFieldMap().forEach((fieldKey,field) -> {
+                System.out.println("\t" + fieldKey + " " + field.getNewFieldName());
+            });
             clazz.getMappedMethodMap().forEach((method,mappedMethod) -> {
                 System.out.println("\t" + method + " " + mappedMethod.getNewMethodName());
             });

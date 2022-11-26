@@ -346,4 +346,7 @@ public final class EventManager {
 
 	}
 
+    public static Map<Class<? extends Event>, List<MethodData>> getRegistryMap() {
+        return REGISTRY_MAP;
+    }
 }

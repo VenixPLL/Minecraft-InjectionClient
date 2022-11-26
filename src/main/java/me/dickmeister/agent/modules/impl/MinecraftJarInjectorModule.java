@@ -24,7 +24,7 @@ public class MinecraftJarInjectorModule extends AgentModule {
 
                 var clazz = classLoader.loadClass("me.dickmeister.client.ClientMain");
                 var instance = clazz.newInstance();
-                clazz.getDeclaredMethod("invokeClient").invoke(instance);
+                clazz.getDeclaredMethod("invokeClient",Instrumentation.class).invoke(instance,instrumentation);
 
                 Thread.currentThread().setContextClassLoader(classLoader);
             }catch(Exception e){

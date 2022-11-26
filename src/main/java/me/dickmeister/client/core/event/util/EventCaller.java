@@ -2,7 +2,9 @@ package me.dickmeister.client.core.event.util;
 
 import me.dickmeister.common.util.LogUtil;
 
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class EventCaller {
 
@@ -15,13 +17,20 @@ public class EventCaller {
 
             var eventDistributor = clazz.getDeclaredMethod("getEventDistributor").invoke(instance);
 
-            var methodArguments = new Class[args.length];
-            for(int i = 0; i < args.length; i++){
-                methodArguments[i] = args[i].getClass();
-            }
+            var result = new AtomicBoolean(false);
+            var methods = eventDistributor.getClass().getMethods();
+            Arrays.stream(methods).forEach(m -> {
+                if(m.getName().equals(methodName)){
+                    try {
+                        result.set((Boolean) m.invoke(eventDistributor, args));
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            });
 
-            var eventMethod = eventDistributor.getClass().getDeclaredMethod(methodName,methodArguments);
-            return (boolean) eventMethod.invoke(eventDistributor, args);
+
+            return result.get();
 
         }catch(Exception e){
             LogUtil.err("Failed to invoke event " + methodName);
